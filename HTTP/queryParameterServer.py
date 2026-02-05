@@ -13,7 +13,8 @@ class queryHandler(BaseHTTPRequestHandler):
                 self.end_headers()
                 self.wfile.write(b"Missing Query")
                 return
-            n= int(query["n"][0])
+            
+            n= int(query["n"][0])#taking the first number if a user gives as a list of number by indexing
             result = b"odd" if n%2 else b"even"
             self.send_response(200)
             self.send_header("content-type","text/plain")
