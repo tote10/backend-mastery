@@ -9,4 +9,16 @@ class queryHandler(BaseHTTPRequestHandler):
         if path == "/isEven":
             if "n" not in query:
                 self.send_response(400)
-                
+                self.send_header("content-type","text/plain")
+                self.end_headers()
+                self.wfile.write(b"Missing Query")
+                return
+            n= int(query["n"][0])
+            result = b"odd" if n%2 else b"even"
+            self.send_response(200)
+            self.send_header("content-type","text/plain")
+            self.end_headers()
+            self.wfile.write(result)
+server = HTTPServer(("localhost",9999),queryHandler)
+print("server is runing")
+server.serve_forever()
