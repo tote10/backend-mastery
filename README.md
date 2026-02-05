@@ -27,7 +27,7 @@ Each folder represents a learning phase.
 Later phases may reuse, refactor, or extend earlier code.
 
 backend-learning-journey/
-├── 01-http-fundamentals/
+├── 01-HTTP/
 ├── 02-rest-api-design/
 ├── 03-databases/
 ├── 04-authentication-authorization/
