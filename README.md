@@ -28,7 +28,7 @@ Later phases may reuse, refactor, or extend earlier code.
 
 backend-learning-journey/
 ├── 01-HTTP/
-├── 02-rest-api-design/
+├── 02-rest-api/
 ├── 03-databases/
 ├── 04-authentication-authorization/
 ├── 05-caching/
