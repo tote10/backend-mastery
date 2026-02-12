@@ -1,4 +1,4 @@
-from fastapi import FastAPI
+from fastapi import FastAPI,HTTPException
 
 app = FastAPI()
 items=[]
@@ -12,5 +12,8 @@ def create_item(item: str):
     return {"message": "Item added successfully"}
 @app.get("/items/{item_id}")
 def get_items(item_id:int):
-    item=items[item_id]
-    return item
+    if item_id < len(items):
+        item=items[item_id]
+        return item
+    else:
+        raise HTTPException(status_code=404, detail="Item not found")
