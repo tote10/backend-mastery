@@ -36,10 +36,12 @@ def get_item(item_id:int):
     raise HTTPException(status_code=404,detail="item not found")
 @app.put("/items/{item_id}")
 def update_item(item_id:int,item_to_update:ItemCreate):
-    for i in items:
-        if i["id"]==item_id:
-            i["name"]=item_to_update.name
-            i["price"]=item_to_update.price
-            i["quantity"]=item_to_update.quantity
-            return i
+    for index , item in enumerate(items):
+        if item["id"]== item_id:
+            update_item={
+            "id":item_id,
+            **item_to_update.dict()
+            }
+            items[index]=update_item
+            return update_item
     raise HTTPException(status_code=404,detail="item not found")
