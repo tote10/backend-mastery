@@ -15,7 +15,7 @@ current_id=1
 def Home():
     return {"Hello" : "Rest API"}
 
-@app.post("/items")
+@app.post("/items", response_model=Item)
 def create_item(ItemToCreate: ItemCreate):
     global current_id
     new_item={
