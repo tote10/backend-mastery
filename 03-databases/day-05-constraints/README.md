@@ -1,29 +1,38 @@
-# Day 5: Constraints
+# Day 5: Constraints (Grind Mode)
 
-Constraints are the rules that keep your data clean and trustworthy. Without them, a database is just a bucket of random text and numbers. Today, we learn how to "lock down" the tables so only valid data gets in.
+If you want to be a top-tier backend engineer, you need to understand exactly how the database protects your logic. Today, we move from "basic rules" to "bulletproof schema design."
 
-## Top 5 Constraints
+## Advanced Concepts
 
-1. **NOT NULL**: Ensures a column cannot have an empty (NULL) value.
-2. **UNIQUE**: Prevents two rows from having the same value in a column (e.g., usernames).
-3. **PRIMARY KEY**: A combination of `NOT NULL` and `UNIQUE`. It identifies each row uniquely.
-4. **FOREIGN KEY**: Ensures that a value in one table matches a value in another (establishing a relationship).
-5. **CHECK**: Enforces a custom business rule (e.g., `price > 0`).
+### 1. Named Constraints
+Don't write `username TEXT UNIQUE`. Write:
+`CONSTRAINT unique_username UNIQUE(username)`
+**Why?** When an error happens, Postgres will say *"Error: unique_username violated"* instead of a random string. This is crucial for debugging production apps.
 
-## Why use them?
-- **Data Integrity**: You can't have a product without a name or a negative price.
-- **Consistency**: Relationships between tables (like Products and Categories) stay valid.
-- **Performance**: Some constraints (like Primary Keys) automatically create indexes to speed up lookups.
+### 2. Referential Integrity Actions
+When you delete a record that other tables point to, what happens?
+- `CASCADE`: Delete the "children" too.
+- `RESTRICT`: Don't allow the deletion.
+- `SET NULL`: Set the "children" reference to NULL.
+- `SET DEFAULT`: Use the default value.
+
+### 3. Composite Keys
+Sometimes, uniqueness depends on two things. For example, in a `room_bookings` table, you can't have the same `room_id` and `booking_time` twice.
+`PRIMARY KEY (room_id, booking_time)`
+
+### 4. Logic in CHECK Constraints
+You can use `AND`, `OR`, and `NOT`.
+`CONSTRAINT price_is_logical CHECK (price >= 0 AND price < 1000000)`
 
 ---
 
-## Challenge: The "Rules of the Store"
-You will expand your database by adding a `categories` table and linking it to your `products`.
+## Challenge: The "Order Management" System
+You aren't just making a list anymore. You are making a system that prevents human error.
 
-### Goal:
-1. Create a `categories` table.
-2. Link `products` to `categories` using a **Foreign Key**.
-3. Add a **Check Constraint** to ensure prices are always positive.
+### Task:
+1. Create `categories`.
+2. Create `products` with an **FK Action** (if a category is deleted, set the product category to NULL).
+3. Create `order_items` which uses a **Composite Key** (order_id + product_id) to ensure a product isn't added to the same order twice.
 
 ---
 

@@ -1,57 +1,59 @@
-# 10-Week SQL & PostgreSQL Deep Dive Plan
+# 10-Week SQL & PostgreSQL Mastery Plan (Grind Mode)
 
-## Weeks 1–2: SQL & Basic Database Usage
-- **Day 1**: Introduction to databases (Tables, Rows, Columns) ✅
-- **Day 2**: Basic SQL – SELECT & WHERE ✅
-- **Day 3**: **(Current)** More SQL – INSERT, UPDATE, DELETE (Modify data, Primary keys, Auto-increment)
-- **Day 4**: Data Types (INT, VARCHAR, DATE, BOOLEAN)
-- **Day 5**: Constraints (NOT NULL, UNIQUE, PRIMARY KEY, FOREIGN KEY)
-- **Day 6**: Relationships & Joins (INNER, LEFT JOIN)
-- **Day 7**: Aggregation & GROUP BY (COUNT, SUM, AVG, HAVING)
-- **Day 8**: Subqueries & EXISTS
-- **Day 9**: Set operations (UNION, INTERSECT, EXCEPT)
-- **Day 10**: Basic indexing (EXPLAIN basics)
-- **Days 11–14**: Mini-project (CRUD application)
+This is not a basic tutorial. This is a path to becoming a PostgreSQL expert. We will cover standard usage AND the internals, performance trade-offs, and architectural patterns.
 
-## Weeks 3–4: Deepen SQL & Start Internals Lightly
-- **Day 15**: Views & Indexes
-- **Day 16**: Transactions (ACID)
-- **Day 17**: Isolation levels
-- **Day 18**: EXPLAIN basics (Seq vs Index scans)
-- **Day 19**: Table design – Normalization (1NF, 2NF, 3NF)
-- **Day 20**: Denormalization & use cases
-- **Days 21–22**: Practice with larger dataset
-- **Days 23–24**: PostgreSQL internals (high-level)
-- **Days 25–28**: Mini-project extension (Performance analysis)
+## Weeks 1–2: Professional SQL & Schema Design
+- **Day 1**: Introduction to Databases & Postgres Architecture (Background processes, Memory) ✅
+- **Day 2**: Basic SQL – SELECT & WHERE (Boolean logic, NULL handling, Pattern matching) ✅
+- **Day 3**: Data Modification & Feedback (INSERT with RETURNING, Multi-row updates) ✅
+- **Day 4**: Data Types Mastery (Storage sizes, Precision, Arrays, JSONB introduction) ✅
+- **Day 5**: **(Current)** Constraints Deep Dive (FK Actions, Named Constraints, Composite Keys, CHECK Logic)
+- **Day 6**: Joins Masterclass (Inner, Left, Right, Full, Cross, Self, Lateral Joins)
+- **Day 7**: Aggregation & Windows (GROUP BY vs. WINDOW Functions, Complex HAVING)
+- **Day 8**: Advanced Subqueries & CTEs (WITH, Recursive CTEs, Correlated Subqueries)
+- **Day 9**: Set Operations & Advanced Filtering (EXISTS, INTERSECT, EXCEPT, ARRAY operators)
+- **Day 10**: Indexing Fundamentals & EXPLAIN (How Postgres finds data, Reading execution plans)
+- **Days 11–14**: Mini-project: High-Integrity E-commerce Schema with full Business logic in SQL.
 
-## Weeks 5–6: Intermediate Internals & Performance
-- **Day 29**: B-Tree indexes deep dive
-- **Day 30**: Composite & partial indexes
-- **Day 31**: Index-only scans & covering indexes
-- **Day 32**: Query planner & cost estimation
-- **Day 33**: Join algorithms (Nested loop, hash join, merge join)
-- **Day 34**: Sorting & aggregation internals
-- **Days 35–36**: Buffer cache & I/O
-- **Day 37**: TOAST & large objects
-- **Days 38–42**: Book: "SQL Performance Explained"
+## Weeks 3–4: SQL Internals & Relational Theory
+- **Day 15**: Views, Materialized Views, and Refresh Strategies
+- **Day 16**: Transactions & ACID Mastery (Atomic commits, WAL role in atomicity)
+- **Day 17**: Isolation Levels (Dirty reads, Phantoms, Serialization anomalies)
+- **Day 18**: EXPLAIN ANALYZE Deep Dive (Cost vs. Actual time, Memory usage in plans)
+- **Day 19**: Normalization Mastery (BNCF, 4NF, 5NF - when they matter)
+- **Day 20**: Intelligent Denormalization (Materialized paths, Trigger-based syncing)
+- **Days 21–22**: Analytical Queries on Large Datasets (Trillion-row simulation concepts)
+- **Days 23–24**: Higher-level Internals (Query Parser, Rewriter, Optimizer, Executor)
+- **Days 25–28**: Mini-project Extension: Performance Benchmarking & Refactoring.
 
-## Weeks 7–8: Transactions, Concurrency & Maintenance
-- **Day 43**: MVCC in detail
-- **Day 44**: Row versions & visibility (xmin, xmax)
-- **Day 45**: Locks (Row, Table, Deadlocks)
-- **Day 46**: Vacuum & Autovacuum
-- **Day 47**: Write-Ahead Logging (WAL)
-- **Day 48**: Replication concepts
-- **Days 49–50**: Backup & restore (pg_dump, pg_restore)
-- **Days 51–56**: Multi-user application (Concurrency handling)
+## Weeks 5–6: Indexing Internals & Query Optimization
+- **Day 29**: B-Tree Internals (Balanced trees, Page structure, Leaf nodes)
+- **Day 30**: Advanced Index Types (GIN, GiST, BRIN, Hash - when to use what)
+- **Day 31**: Composite, Partial, and Expression Indexes
+- **Day 32**: Query Planner Cost Estimation (seq_page_cost, random_page_cost tuning)
+- **Day 33**: Join Algorithms Internals (Nested Loop, Hash Join, Merge Join - why Postgres picks them)
+- **Day 34**: Memory Management (work_mem, maintenance_work_mem, temp files)
+- **Days 35–36**: Shared Buffers & OS Cache (The journey of a data page)
+- **Day 37**: TOAST Architecture (How Postgres handles massive rows)
+- **Days 38–42**: Deep reading & implementation of "SQL Performance Explained" examples.
 
-## Weeks 9–10: Scaling & Advanced Topics
-- **Day 57**: Partitioning
-- **Day 58**: Sharding concepts
-- **Day 59**: Connection pooling (PgBouncer)
-- **Day 60**: Read vs write optimizations (CQRS)
-- **Day 61**: High availability (Patroni, failover)
-- **Day 62**: NoSQL comparison (MongoDB/Cassandra, CAP theorem)
-- **Days 63–70**: Capstone project (Scalable e-commerce platform)
+## Weeks 7–8: Concurrency, MVCC & Reliability
+- **Day 43**: MVCC Deep Dive (Multi-Version Concurrency Control, Heap Only Tuples)
+- **Day 44**: Row Visibility Internals (xmin, xmax, Transaction Isolation)
+- **Day 45**: Locking Strategies (Implicit vs Explicit, Advisory Locks, Deadlock detection)
+- **Day 46**: The Vacuum Lifecycle (Autovacuum tuning, Bloat management, Freeze Map)
+- **Day 47**: Write-Ahead Logging (WAL) & Crash Recovery (Checkpoints, Redo logs)
+- **Day 48**: Replication Deep Dive (Streaming vs. Logical, Synchronous vs. Asynchronous)
+- **Days 49–50**: Disaster Recovery: Point-in-Time Recovery (PITR) & pg_basebackup.
+- **Days 51–56**: Capstone 1: Multi-user Concurrent Booking System with Strict Conflict Resolution.
 
-✅ Outcome: You can architect scalable database solutions and understand the trade-offs deeper than most developers.
+## Weeks 9–10: High Availability & Scaling
+- **Day 57**: Declarative Table Partitioning (Range, List, Hash partitioning strategies)
+- **Day 58**: Designing for Sharding (Citus, Foreign Data Wrappers, Sharding keys)
+- **Day 59**: Connection Management (Client side vs. Server side pooling, PgBouncer vs. PgCat)
+- **Day 60**: Distributed Consistency (CAP Theorem in practice, 2-Phase Commit)
+- **Day 61**: High Availability Architectures (Patroni, Keepalived, VIPs)
+- **Day 62**: Polyglot Persistence (When to stay in SQL vs. moving to NoSQL)
+- **Days 63–70**: Final Capstone: Architecting a High-Load E-Commerce Platform with Partitioning and HA.
+
+✅ Outcome: You are now a Database Architect, not just a SQL user.

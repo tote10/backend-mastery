@@ -1,20 +1,26 @@
--- Day 5: Constraints Exercises
--- ----------------------------
--- Goal: Practice enforcing data integrity with PK, FK, UNIQUE, and CHECK.
+-- Day 5: Constraints Exercises (Grind Mode)
+-- -----------------------------------------
+-- Goal: Practice Named Constraints, FK Actions, and Composite Keys.
 
--- Setup: Make sure you are connected to the right DB
--- \c backend_mystry
-
--- 1. Create a "categories" table
--- Needs: category_id (PK), category_name (Unique, Not Null).
+-- 1. Create 'categories' with a Named Unique constraint
+-- Write your SQL here:
 
 
--- 2. Modify or Re-create "products" to include constraints
--- Add a 'category_id' column that is a FOREIGN KEY pointing to categories.
--- Add a CHECK constraint to ensure 'price' is greater than 0.
+-- 2. Create 'products' with an FK Action
+-- Hint: Use ON DELETE SET NULL on your category_id reference.
+-- Also add a CHECK constraint that name cannot be an empty string.
+-- Write your SQL here:
 
 
--- 3. The "Constraint Test"
--- Try to insert a product with a category_id that doesn't exist.
--- Try to insert a product with a price of -10.00.
--- Observe the errors.
+-- 3. Create 'order_items' (The Composite Key Challenge)
+-- This table tracks which products are in which order.
+-- Columns: order_id (INT), product_id (INT), quantity (INT).
+-- Constraint: The combination of order_id and product_id must be the PRIMARY KEY.
+-- Constraint: Quantity must be greater than zero.
+-- Write your SQL here:
+
+
+-- 4. The "Integrity Grind"
+-- a) Delete a category. Verify that your products' category_id becomes NULL.
+-- b) Try to add the same product to the same order twice. Observe the PK violation.
+-- c) Try to add a product with quantity 0. Observe the CHECK violation.
