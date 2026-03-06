@@ -20,20 +20,28 @@ CREATE TABLE products (
     CONSTRAINT fk_category FOREIGN KEY (category_id) REFERENCES categories(id) 
     ON DELETE SET NULL
 );
-
--- Also add a CHECK constraint that name cannot be an empty string.
--- Write your SQL here:
-
-
 -- 3. Create 'order_items' (The Composite Key Challenge)
--- This table tracks which products are in which order.
--- Columns: order_id (INT), product_id (INT), quantity (INT).
--- Constraint: The combination of order_id and product_id must be the PRIMARY KEY.
--- Constraint: Quantity must be greater than zero.
--- Write your SQL here:
+CREATE TABLE order_items (
+    order_id INT,
+    product_id INT,
+    quantity INT NOT NULL,
+    -- Constraint: The combination of order_id and product_id must be the PRIMARY KEY.
+    CONSTRAINT pk_order_items PRIMARY KEY (order_id, product_id),
+    CONSTRAINT fk_product FOREIGN KEY (product_id) REFERENCES products(id) ON DELETE CASCADE,    
+    CONSTRAINT quantity_greater_than_zero CHECK (quantity > 0)
+);
+
 
 
 -- 4. The "Integrity Grind"
--- a) Delete a category. Verify that your products' category_id becomes NULL.
--- b) Try to add the same product to the same order twice. Observe the PK violation.
--- c) Try to add a product with quantity 0. Observe the CHECK violation.
+INSERT INTO categories(name) VALUES('Games');
+INSERT INTO products(name, price, category_id) VALUES('PS5', 499.99, 1);
+-- Delete a category. Verify that your products' category_id becomes NULL.
+DELETE FROM categories WHERE name = 'Games';
+-- verfication
+SELECT name, category_id FROM products WHERE name = 'PS5';
+-- Try to add the same product to the same order twice. Observe the PK violation.
+INSERT INTO order_items(order_id, product_id, quantity) VALUES(1, 1, 1);
+INSERT INTO order_items(order_id, product_id, quantity) VALUES(1, 1, 5);
+-- Try to add a product with quantity 0. Observe the CHECK violation.
+INSERT INTO order_items(order_id, product_id, quantity) VALUES(1, 1, 0);
