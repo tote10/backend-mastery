@@ -16,10 +16,11 @@ CREATE TABLE products (
     price NUMERIC(10,2) NOT NULL,
     CONSTRAINT price_not_negative CHECK (price >= 0),
     category_id INT,
+    -- Hint: Use ON DELETE SET NULL on your category_id reference.
     CONSTRAINT fk_category FOREIGN KEY (category_id) REFERENCES categories(id) 
     ON DELETE SET NULL
 );
--- Hint: Use ON DELETE SET NULL on your category_id reference.
+
 -- Also add a CHECK constraint that name cannot be an empty string.
 -- Write your SQL here:
 
