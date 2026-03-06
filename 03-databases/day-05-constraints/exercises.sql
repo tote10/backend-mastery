@@ -3,10 +3,22 @@
 -- Goal: Practice Named Constraints, FK Actions, and Composite Keys.
 
 -- 1. Create 'categories' with a Named Unique constraint
--- Write your SQL here:
-
-
+CREATE TABLE categories (
+    id SERIAL PRIMARY KEY,
+    name VARCHAR(50) NOT NULL,
+    CONSTRAINT unique_category_name UNIQUE (name)
+);
 -- 2. Create 'products' with an FK Action
+CREATE TABLE products (
+    id SERIAL PRIMARY KEY,
+    name VARCHAR(50) NOT NULL,
+    CONSTRAINT name_not_empty CHECK (name <> ''),
+    price NUMERIC(10,2) NOT NULL,
+    CONSTRAINT price_not_negative CHECK (price >= 0),
+    category_id INT,
+    CONSTRAINT fk_category FOREIGN KEY (category_id) REFERENCES categories(id) 
+    ON DELETE SET NULL
+);
 -- Hint: Use ON DELETE SET NULL on your category_id reference.
 -- Also add a CHECK constraint that name cannot be an empty string.
 -- Write your SQL here:
