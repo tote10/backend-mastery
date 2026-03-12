@@ -51,7 +51,14 @@ FULL JOIN products p ON c.id = p.category_id;
 -- 4. SELF JOIN: Category Hierarchy
 -- Requirement: If we add a 'parent_id' to categories, how do we show a category and its parent?
 -- (Note: You might need to ALTER categories to add parent_id first!)
--- Write your SQL here:
+ALTER TABLE categories ADD COLUMN parent_id INT;
+ALTER TABLE categories ADD CONSTRAINT fk_parent_id FOREIGN KEY (parent_id) REFERENCES categories(id);
+UPDATE categories SET parent_id =(SELECT id FROM categories WHERE name = 'Furniture') WHERE name = 'Electronics';
+
+SELECT c.name AS category_name , p.name AS parent_name
+FROM categories c
+LEFT JOIN categories p ON c.parent_id = p.id;
+
 
 
 -- 5. THE INTERNAL CHALLENGE (EXPLAIN)
