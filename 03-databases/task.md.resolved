@@ -1,0 +1,59 @@
+# Tasks
+
+## Environment Setup
+- [x] Create learning workspace structure `[x]`
+- [x] Create `backend_mystry` Database `[x]`
+
+## Week 1–2: Professional SQL & Schema Design
+- [x] Day 1 – Intro & Postgres Architecture ✅
+- [x] Day 2 – Basic SQL: SELECT & WHERE ✅
+- [x] Day 3 – Data Modification & RETURNING ✅
+- [x] Day 4 – Data Types Mastery ✅
+- [x] Day 5 – Constraints Mastery ✅
+- [x] Day 6 – Joins Masterclass ✅
+- [ ] Day 7 – Aggregation & Windows (GROUP BY, HAVING) `[ ]`
+- [ ] Day 8 – Advanced SQL (CTEs, Subqueries) `[ ]`
+- [ ] Day 9 – Set Operations & Advanced Filtering `[ ]`
+- [ ] Day 10 – Indexing Fundamentals & EXPLAIN `[ ]`
+- [ ] Days 11–14 – Mini-project: High-Integrity E-commerce Schema `[ ]`
+
+## Week 3–4: SQL Internals & Relational Theory
+- [ ] Day 15 – Views & Materialized Views `[ ]`
+- [ ] Day 16 – Transactions & ACID Mastery `[ ]`
+- [ ] Day 17 – Isolation Levels (Anomalies) `[ ]`
+- [ ] Day 18 – EXPLAIN ANALYZE Deep Dive `[ ]`
+- [ ] Day 19 – Normalization Mastery (BNCF, 4NF, 5NF) `[ ]`
+- [ ] Day 20 – Intelligent Denormalization `[ ]`
+- [ ] Days 21–22 – Analytical Queries on Large Datasets `[ ]`
+- [ ] Days 23–24 – Parser, Optimizer, Executor Lifecycle `[ ]`
+- [ ] Days 25–28 – Performance Project `[ ]`
+
+## Week 5–6: Indexing Internals & Optimization
+- [ ] Day 29 – B-Tree Internals `[ ]`
+- [ ] Day 30 – Advanced Index Types (GIN, GiST) `[ ]`
+- [ ] Day 31 – Special Indexes (Partial, Expression) `[ ]`
+- [ ] Day 32 – Planner Cost Tuning `[ ]`
+- [ ] Day 33 – Join Algorithms (Nested, Hash, Merge) `[ ]`
+- [ ] Day 34 – Memory Management (work_mem) `[ ]`
+- [ ] Day 35–36 – Shared Buffers & Caching `[ ]`
+- [ ] Day 37 – TOAST Architecture `[ ]`
+- [ ] Days 38–42 – SQL Performance Implementation `[ ]`
+
+## Week 7–8: Concurrency, MVCC & Reliability
+- [ ] Day 43 – MVCC Deep Dive `[ ]`
+- [ ] Day 44 – Row Visibility (xmin, xmax) `[ ]`
+- [ ] Day 45 – Locking Strategies & Deadlocks `[ ]`
+- [ ] Day 46 – Vacuum & Autovacuum Tuning `[ ]`
+- [ ] Day 47 – WAL & Crash Recovery `[ ]`
+- [ ] Day 48 – Replication (Streaming vs Logical) `[ ]`
+- [ ] Days 49–50 – Disaster Recovery & PITR `[ ]`
+- [ ] Days 51–56 – Capstone: Concurrent Booking System `[ ]`
+
+## Week 9–10: Scaling & High Availability
+- [ ] Day 57 – Table Partitioning Strategies `[ ]`
+- [ ] Day 58 – Sharding & Distributed Postgres `[ ]`
+- [ ] Day 59 – Connection Pooling (PgBouncer) `[ ]`
+- [ ] Day 60 – Distributed Consistency (CAP Theorem) `[ ]`
+- [ ] Day 61 – HA (Patroni, Failover) `[ ]`
+- [ ] Day 62 – SQL vs NoSQL (MongoDB) `[ ]`
+- [ ] Days 63–70 – Final Capstone: High-Load Platform `[ ]`

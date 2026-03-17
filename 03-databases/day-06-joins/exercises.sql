@@ -1,7 +1,6 @@
 -- Day 6: Joins Masterclass (The Relational Grind)
 -- ------------------------------------------------
 -- Goal: Master all Join types and understand EXPLAIN outputs.
-
 -- 0. DATA SETUP (Run this first to have interesting data to play with!)
 -- ------------------------------------------------------------------
 -- Step A: Insert Categories
@@ -65,3 +64,16 @@ LEFT JOIN categories p ON c.parent_id = p.id;
 -- Requirement: Run 'EXPLAIN ANALYZE' on your first join.
 -- Observe if Postgres uses a "Hash Join", "Nested Loop", or "Merge Join".
 -- Copy the plan output here as a comment.
+EXPLAIN ANALYZE SELECT p.name , oi.quantity
+FROM products p
+INNER JOIN order_items oi ON p.id = oi.product_id;
+
+-- 6. FINAL BOSS CHALLENGE: The Unguided INNER JOIN
+-- Requirement: We want to see the Names of Products AND the Names of their Categories.
+-- Action: Write an INNER JOIN between 'products' and 'categories'.
+-- Rule: You must write this completely from scratch! No hints!
+-- Write your SQL below:
+
+SELECT p.product_name , c.category_name 
+FROM products p 
+INNER  JOIN categories c ON p.category_id = c.id;
