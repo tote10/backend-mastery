@@ -14,16 +14,18 @@ INSERT INTO order_items (order_id, product_id, quantity) VALUES
 -- 1. BASIC AGGREGATION: The Inventory Count
 -- Requirement: How many total products do we sell in the whole store?
 -- (Use the `products` table).
--- Write your SQL here:
-
+SELECT COUNT(*) AS total_products
+FROM products 
 
 
 -- 2. GROUP BY: Sales by Product
 -- Requirement: Show every Product Name and the TOTAL quantity sold for that product.
 -- (Join 'products' to 'order_items', select name and SUM(quantity), and group them).
 -- Write your SQL here:
-
-
+SELECT p.name, SUM(oi.quantity) AS total_quantity_sold
+FROM products p
+INNER JOIN order_items oi ON p.id = oi.product_id
+GROUP BY p.name;
 
 -- 3. THE 'HAVING' FILTER: High-Volume Sales
 -- Requirement: Take query #2, but only show products that have sold MORE THAN 2 items total.
