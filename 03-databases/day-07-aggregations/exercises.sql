@@ -30,8 +30,10 @@ GROUP BY p.name;
 -- 3. THE 'HAVING' FILTER: High-Volume Sales
 -- Requirement: Take query #2, but only show products that have sold MORE THAN 2 items total.
 -- (Copy query #2, but add a HAVING clause at the bottom).
--- Write your SQL here:
-
+SELECT p.name , SUM(oi.quantity) FROM products p
+INNER JOIN order_items oi ON p.id= oi.product_id
+GROUP BY p.name
+HAVING(SUM(oi.quantity))
 
 
 -- 4. THE MONEY QUERY (Advanced)
