@@ -15,7 +15,7 @@ INSERT INTO order_items (order_id, product_id, quantity) VALUES
 -- Requirement: How many total products do we sell in the whole store?
 -- (Use the `products` table).
 SELECT COUNT(*) AS total_products
-FROM products 
+FROM products;
 
 
 -- 2. GROUP BY: Sales by Product
@@ -30,10 +30,11 @@ GROUP BY p.name;
 -- 3. THE 'HAVING' FILTER: High-Volume Sales
 -- Requirement: Take query #2, but only show products that have sold MORE THAN 2 items total.
 -- (Copy query #2, but add a HAVING clause at the bottom).
-SELECT p.name , SUM(oi.quantity) FROM products p
-INNER JOIN order_items oi ON p.id= oi.product_id
+SELECT p.name, SUM(oi.quantity) AS total_quantity_sold
+FROM products p
+INNER JOIN order_items oi ON p.id = oi.product_id
 GROUP BY p.name
-HAVING(SUM(oi.quantity))
+HAVING SUM(oi.quantity) > 2;
 
 
 -- 4. THE MONEY QUERY (Advanced)
@@ -41,3 +42,7 @@ HAVING(SUM(oi.quantity))
 -- (Revenue = price * quantity). Show the Product Name and the Total Revenue.
 -- Hint: Inside the SUM(), you can do math! Like: SUM(p.price * oi.quantity)
 -- Write your SQL here:
+SELECT p.name, SUM(p.price * oi.quantity) AS total_revenue
+FROM products p
+INNER JOIN order_items oi ON p.id = oi.product_id
+GROUP BY p.name;
