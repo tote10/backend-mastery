@@ -43,3 +43,7 @@ HAVING SUM(oi.quantity) > 2;
 -- Hint: Inside the SUM(), you can do math! Like: SUM(p.price * oi.quantity)
 -- Write your SQL here:
 
+SELECT p.name, SUM(p.price * oi.quantity) AS total_revenue
+FROM products p
+INNER JOIN order_items oi ON p.id = oi.product_id
+GROUP BY p.name;
